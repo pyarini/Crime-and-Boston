@@ -50,6 +50,17 @@ d4_percentage = d4_ratio * 100
 
 print("this is the percentage of the number of crimes in the D4 district compared to the rest of the dataset:", d4_percentage)
 
+d4= df[df['DISTRICT'] == 'D4']
+mode_code_d4 = d4['OFFENSE_CODE'].mode()
+#print(mode_code_d4)
+
+a15 = df[df['DISTRICT'] == 'A15']
+mode_code_a15 = a15['OFFENSE_CODE'].mode()
+#print(mode_code_a15)
+
+print("this is the most frequent crimes committed in district d4", mode_code_d4)
+print("this is the most frequent crimes committed in district a15", mode_code_a15)
+
 district_crime_counts = df['DISTRICT'].value_counts()
 district_crime_counts.plot(kind='bar', figsize=(10, 6), color='b')
 plt.title('Number of Crimes by District')
